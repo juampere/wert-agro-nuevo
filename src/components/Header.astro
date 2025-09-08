@@ -1,0 +1,16 @@
+---
+import Navigation from './Navigation.astro'; // Importamos la "caja pequeña"
+---
+<header class="fixed top-0 left-0 w-full bg-white z-50 shadow-md">
+  <div class="container mx-auto px-4 flex justify-between items-center h-24">
+    
+    {/* PARTE 1: El Logo (se queda aquí) */}
+    <a href="/" class="relative z-50">
+      <img src="/images/logo.png" alt="WERT Logo" class="h-10 w-auto">
+    </a>
+    
+    {/* PARTE 2: Llamamos al componente que ahora contiene toda la navegación */}
+    <Navigation />
+
+  </div>
+</header>

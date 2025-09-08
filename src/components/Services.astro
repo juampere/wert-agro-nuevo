@@ -1,0 +1,54 @@
+---
+import ServiceItem from './ServiceItem.astro';
+---
+<section id="services" class="bg-[#f8f5f2] py-20 md:py-32">
+  <div class="container mx-auto px-4">
+    <div class="text-center mb-20">
+      <h2 class="text-4xl md:text-5xl font-bold">Que Ofrecemos</h2>
+    </div>
+
+    <div class="space-y-20">
+
+      <ServiceItem
+        title="Balanzas para Ganado"
+        imageUrl="/images/Home-Service-1.jpg"
+        imageAlt="Balanza para Ganado"
+      >
+        <p>
+          Nuestras balanzas para ganado están diseñadas con la última tecnología, permitiendo un pesaje preciso y rápido de sus animales. Ideales para explotaciones de cualquier tamaño, desde pequeñas granjas hasta grandes feedlots.
+        </p>
+        <p>
+          Características principales: plataforma antideslizante, sistema de contención seguro, pantalla digital de alta visibilidad y capacidad de almacenamiento de datos.
+        </p>
+      </ServiceItem>
+
+      <ServiceItem
+        title="Estructuras e Insumos"
+        imageUrl="/images/Home-Service-2.jpg"
+        imageAlt="Balanza para Insumos"
+        reverse={true}
+      >
+        <p>
+          Soluciones especializadas para el pesaje de insumos ganaderos como alimento balanceado, forrajes y otros materiales. Diseñadas para soportar las condiciones más exigentes del ambiente rural.
+        </p>
+        <p>
+          Características principales: alta capacidad de carga, resistencia a la intemperie, sistema de calibración automática y múltiples unidades de medida.
+        </p>
+      </ServiceItem>
+
+      <ServiceItem
+        title="Servicio Técnico"
+        imageUrl="/images/Home-Service-3.jpg"
+        imageAlt="Servicio Técnico"
+      >
+        <p>
+          Ofrecemos un servicio técnico especializado para todas nuestras balanzas, incluyendo instalación, calibración, mantenimiento preventivo y reparación. Nuestro equipo técnico está disponible para atender sus necesidades en cualquier momento.
+        </p>
+        <p>
+          Garantizamos una respuesta rápida y eficiente, con personal capacitado y repuestos originales para mantener sus equipos funcionando al máximo rendimiento.
+        </p>
+      </ServiceItem>
+      
+    </div>
+  </div>
+</section>

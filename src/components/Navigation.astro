@@ -1,0 +1,83 @@
+---
+// No se necesitan props
+---
+<div class="menu">
+  <nav class="hidden md:flex items-center gap-6">
+    <a href="#about" class="font-semibold hover:text-gray-500">Nosotros</a>
+    <a href="#services" class="font-semibold hover:text-gray-500">Servicios</a>
+    <a href="#contact" class="font-semibold hover:text-gray-500">Contacto</a>
+    <a href="https://market.wert.com.ar" target="_blank" class="relative bg-[#303a4d] text-white font-semibold px-6 py-3 rounded-lg hover:bg-opacity-80 transition-all">
+      Market
+      <span class="absolute -top-2 -right-3 bg-orange-500 text-white text-xs font-bold px-2 py-0.5 rounded-full">
+        NUEVO
+      </span>
+    </a>
+  </nav>
+
+  <div class="md:hidden">
+    <button id="menu-toggle" type="button" class="relative z-50">
+      <div class="space-y-2">
+        <span class="block w-8 h-0.5 bg-gray-600 transition-transform duration-300 ease-in-out"></span>
+        <span class="block w-8 h-0.5 bg-gray-600 transition-opacity duration-300 ease-in-out"></span>
+        <span class="block w-8 h-0.5 bg-gray-600 transition-transform duration-300 ease-in-out"></span>
+      </div>
+    </button>
+  </div>
+</div>
+
+<div id="mobile-menu" class="fixed top-0 left-0 w-full h-full bg-white z-40 flex flex-col items-center justify-center gap-10 transform -translate-x-full transition-transform duration-300 ease-in-out">
+  <a href="#about" class="text-4xl font-bold">Nosotros</a>
+  <a href="#services" class="text-4xl font-bold">Servicios</a>
+  <a href="#contact" class="text-4xl font-bold">Contacto</a>
+  <a 
+    href="https://market.wert.com.ar" 
+    target="_blank" 
+    class="relative text-4xl font-bold"
+  >
+    Market
+    <span class="absolute -top-2 -right-12 bg-orange-500 text-white text-xs font-bold px-2 py-0.5 rounded-full">
+      NUEVO
+    </span>
+  </a>
+</div>
+
+<script>
+  const menuToggle = document.getElementById('menu-toggle');
+  const mobileMenu = document.getElementById('mobile-menu');
+
+  // Con esta sola verificación, solucionamos todos los posibles errores de 'null'.
+  // Le decimos a TypeScript: "Solo ejecuta el código que está aquí adentro
+  // si AMBOS elementos, menuToggle y mobileMenu, fueron encontrados".
+  if (menuToggle && mobileMenu) {
+    
+    const menuLinks = mobileMenu.querySelectorAll('a');
+
+    menuToggle.addEventListener('click', () => {
+      // Como ya sabemos que existen, no necesitamos el ?. aquí.
+      menuToggle.classList.toggle('is-active');
+      mobileMenu.classList.toggle('-translate-x-full');
+      document.body.classList.toggle('overflow-hidden');
+    });
+
+    menuLinks.forEach(link => {
+      link.addEventListener('click', () => {
+        // Ni aquí tampoco.
+        menuToggle.classList.remove('is-active');
+        mobileMenu.classList.add('-translate-x-full');
+        document.body.classList.remove('overflow-hidden');
+      });
+    });
+  }
+</script>
+
+<style>
+  #menu-toggle.is-active span:nth-child(1) {
+    transform: translateY(10px) rotate(45deg);
+  }
+  #menu-toggle.is-active span:nth-child(2) {
+    opacity: 0;
+  }
+  #menu-toggle.is-active span:nth-child(3) {
+    transform: translateY(-10px) rotate(-45deg);
+  }
+</style>

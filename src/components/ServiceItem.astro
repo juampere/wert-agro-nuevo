@@ -1,0 +1,26 @@
+---
+// Definimos las "propiedades" que este componente aceptará.
+// Como un formulario que debemos rellenar cada vez que lo usemos.
+export interface Props {
+  title: string;
+  imageUrl: string;
+  imageAlt: string;
+  reverse?: boolean; // Una propiedad opcional para alternar el orden
+}
+
+const { title, imageUrl, imageAlt, reverse = false } = Astro.props;
+---
+<div class:list={["flex flex-col md:flex-row items-center gap-12 md:gap-24", { "md:flex-row-reverse": reverse }]}>
+  
+  <div class="md:w-1/2">
+    <img src={imageUrl} alt={imageAlt} class="rounded-2xl shadow-lg w-full h-full object-cover" loading="lazy" />
+  </div>
+
+  <div class="md:w-1/2">
+    <h2 class="text-3xl md:text-4xl font-bold mb-6">{title}</h2>
+    <div class="text-lg leading-relaxed space-y-6">
+      <slot />
+    </div>
+  </div>
+
+</div>
